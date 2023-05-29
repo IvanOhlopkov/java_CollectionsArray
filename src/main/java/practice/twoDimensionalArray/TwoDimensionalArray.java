@@ -5,13 +5,18 @@ public class TwoDimensionalArray {
     public static final char SYMBOL = 'X';
 
     public static char[][] getTwoDimensionalArray(int size) {
-
-        //TODO: Написать метод, который создаст двумерный массив char заданного размера.
-        // массив должен содержать символ SYMBOL по диагоналям, пример для size = 3
-        // [X,  , X]
-        // [ , X,  ]
-        // [X,  , X]
-
-        return new char[0][0];
+        char[][] figureIks = new char[size][size];
+        int value = size - 1;
+        for (int x = 0; x < size; x++) {
+            for (int y = 0; y < size; y++) {
+                if (y == x || y == value) {
+                    figureIks[x][y] = SYMBOL;
+                } else {
+                    figureIks[x][y] = ' ';
+                }
+            }
+            value = value - 1;
+        }
+        return figureIks;
     }
 }
